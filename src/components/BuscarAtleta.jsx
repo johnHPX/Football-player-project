@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CardAtleta from "./CardAtleta.jsx";
 
-export default function PesquisaAtleta() {
+export default function PesquisaAtleta(props) {
   const [nomeInput, setNomeInput] = useState("")
   const [nomeValue, setNomeValue] = useState(null)
   const [dadosAtleta, setDadosAtleta] = useState(null)
@@ -116,7 +116,7 @@ export default function PesquisaAtleta() {
         {erro && <p className="text-red-500">{erro}</p>}
         {dadosAtleta && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <CardAtleta atleta={dadosAtleta} />
+            <CardAtleta atleta={dadosAtleta} adicionarFavorito={props.adicionarFavorito} setDadosAtleta={setDadosAtleta} />
           </div>
         )}
       </div>

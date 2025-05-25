@@ -9,14 +9,13 @@ export default function App() {
     if (!favoritos.find((f) => f.id === atleta.id)) {
       setFavoritos([...favoritos, atleta]);
     }
-  };
-
+  }
 
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">Pesquisa de Atletas</h1>
-      <BuscarAtleta />
-      {/* <PainelFavoritos favoritos={favoritos} /> */}
+      <BuscarAtleta adicionarFavorito={adicionarFavorito} />
+      <PainelFavoritos favoritos={favoritos} />
     </div>
   );
 }
