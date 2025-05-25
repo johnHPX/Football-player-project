@@ -3,11 +3,11 @@ import axios from "axios";
 import CardAtleta from "./CardAtleta.jsx";
 
 export default function PesquisaAtleta() {
-  const [nomeInput, setNomeInput] = useState("");
-  const [nomeValue, setNomeValue] = useState(null);
-  const [dadosAtleta, setDadosAtleta] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [erro, setErro] = useState(null);
+  const [nomeInput, setNomeInput] = useState("")
+  const [nomeValue, setNomeValue] = useState(null)
+  const [dadosAtleta, setDadosAtleta] = useState(null)
+  const [loading, setLoading] = useState(false)
+  const [erro, setErro] = useState(null)
 
   useEffect(() => {
     if (!nomeValue) return;
@@ -18,14 +18,22 @@ export default function PesquisaAtleta() {
         setErro(null);
         setDadosAtleta(null);
 
+        const name_host = import.meta.env.VITE_API_NAME_HOST
+        const host = import.meta.env.VITE_API_HOST
+        const name_key = import.meta.env.VITE_API_NAME_KEY
+        const key = import.meta.env.VITE_API_KEY
+        const url_1 = import.meta.env.VITE_API_URL_01
+        const url_2 = import.meta.env.VITE_API_URL_02
+        const url_3 = import.meta.env.VITE_API_URL_03
+
         const headers = {
-          "x-rapidapi-key": "449e971e0amsh24681866c5fc23bp1a6079jsn19d2019d0380",
-          "x-rapidapi-host": "free-api-live-football-data.p.rapidapi.com",
+          [name_host]: host,
+          [name_key]: key
         };
 
         const options1 = {
           method: "GET",
-          url: "https://free-api-live-football-data.p.rapidapi.com/football-players-search",
+          url: url_1,
           params: { search: nomeValue },
           headers,
         };
@@ -42,14 +50,14 @@ export default function PesquisaAtleta() {
 
         const options2 = {
           method: "GET",
-          url: "https://free-api-live-football-data.p.rapidapi.com/football-get-player-logo",
+          url: url_2,
           params: { playerid: id },
           headers,
         };
 
         const options3 = {
           method: "GET",
-          url: "https://free-api-live-football-data.p.rapidapi.com/football-get-player-detail",
+          url: url_3,
           params: { playerid: id },
           headers,
         };
@@ -81,7 +89,7 @@ export default function PesquisaAtleta() {
       }
     }
 
-    setNomeInput("")
+    setNomeValue(null)
 
     buscarDados();
   }, [nomeValue]);
