@@ -37,3 +37,5 @@
 ## Hospedagem
 
 <h3>O projeto está hospedado na <a href="https://vercel.com/"><strong>Vercel</stong></a>. Pode ser acessado no link de site deste repositório.</h3>
+
+<h4>NOTA: AS VARIÁVEIS DE AMBIENTE NÃO ESTÃO NO REPOSITÓRIO.</h4>
