@@ -132,7 +132,7 @@ export default function PesquisaAtleta(props) {
   }, [nomeValor])
 
 
-  // Observa nomeDigitado para que quando modificar o seu valor, possa limpar os jogadores buscados da tela
+  // Observa "nomeDigitado" para que quando modificar o seu valor, possa limpar os jogadores buscados da tela
   useEffect(() => {
     setDadosAtletas([])
   }, [nomeDigitado])
